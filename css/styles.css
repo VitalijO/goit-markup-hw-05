@@ -295,6 +295,7 @@ body {
 
 
 .portfolio-item{
+     
     width: 370px;
     margin-right: var(--typical-margin);
     margin-bottom:var(--typical-margin);
@@ -309,6 +310,7 @@ body {
 
 
 .portfolio-link{
+    position: relative;
     text-decoration: none;
     display:block; 
     
@@ -319,6 +321,10 @@ body {
 }
 
 .portfolio-section{ 
+
+    width: 100%;
+    bottom: 0;
+    left:0;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 24px;
@@ -369,6 +375,40 @@ body {
     color: var(--accent-color);
 }
 
+.image-wrapper{
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-overlay {
+    position: absolute;
+
+    display: flex;
+    padding: 63px 24px ;
+    width: 100%;
+    height: 100%;
+    background: rgba(33, 150, 243, 0.9);
+    bottom:0;
+    left: 0;
+    
+    transition-property: transform, opacity;
+    transition-duration: var(--time-duration);
+    transition-timing-function: var(--my-cubic);
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+.portfolio-link:hover .portfolio-overlay{
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.portfolio-text-about{
+    font-size: 18px;
+    line-height: 1.56;
+    letter-spacing: 0.03em;
+    color: #fff;
+}
 
 /* -------------------------------------------Features-------------------------------------------------------------------------*/
 
@@ -820,34 +860,41 @@ body {
     pointer-events: none;
 }
 
+.backdrop.is-hidden .modal{
+    transform:translate(-50%, -50%) scale(0.9);
+}
+
 .modal {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     width: 528px;
     height: 581px;
      
     background: #fff;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
+
+    transform:translate(-50% ,-50%) scale(1);
+    transition-property: transform;
+    transition-duration: var(--time-duration);
+    transition-timing-function: var(--my-cubic)
 }
 
 
 .close-button{
-    position: absolute;
-    right: 23px;
-    top: 23px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    left: 490px;
+    top: 8px;
+    border: 5px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
+    width: 30px;
+    height: 30px;
 }
 
 .close-icon{
     position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    width: 30px;
-    height: 30px;
-   fill:currentColor
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  
 }
