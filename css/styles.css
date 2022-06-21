@@ -138,7 +138,9 @@ body {
     border-radius: 2px;
 }
 
+ 
 .auth-link {
+    
     text-decoration: none;
     color: var(--common-text-color);
    
@@ -164,7 +166,7 @@ body {
 }
 
 
-
+.menu-link.current-page,
 .menu-link:hover,
 .menu-link:focus,
 .auth-link:hover,
@@ -773,7 +775,7 @@ body {
 .footer-phon:focus
 .footer-address:hover,
 .footer-address:hover{
-     color: #FFF; 
+     color: var(--accent-color); 
     }
 
 /* -------------------------------------------Join us------------------------------------------------------------------------*/
@@ -858,10 +860,18 @@ body {
 .backdrop.is-hidden {
     opacity: 0;
     pointer-events: none;
+ 
+    transition-property: opacity;
+    transition-duration: var(--time-duration);
+    transition-timing-function: var(--my-cubic)
 }
 
 .backdrop.is-hidden .modal{
-    transform:translate(-50%, -50%) scale(0.9);
+    transform:translate(-50%, -50%) scale(0.1);
+
+    transition-property: transform;
+    transition-duration: var(--time-duration);
+    transition-timing-function: var(--my-cubic)
 }
 
 .modal {
@@ -890,8 +900,9 @@ body {
     border-radius: 50%;
     width: 30px;
     height: 30px;
+ 
 }
-
+   
 .close-icon{
     position: absolute;
     top: 50%;
